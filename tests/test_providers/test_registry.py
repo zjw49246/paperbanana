@@ -12,19 +12,19 @@ def test_create_gemini_vlm():
     """Test creating a Gemini VLM provider."""
     settings = Settings(
         vlm_provider="gemini",
-        vlm_model="gemini-2.0-flash",
+        vlm_model="gemini-2.5-flash",
         google_api_key="test-key",
     )
     vlm = ProviderRegistry.create_vlm(settings)
     assert vlm.name == "gemini"
-    assert vlm.model_name == "gemini-2.0-flash"
+    assert vlm.model_name == "gemini-2.5-flash"
 
 
 def test_create_gemini_vlm_with_model_and_base_url_override():
     """Gemini VLM uses gemini-specific model and base URL overrides."""
     settings = Settings(
         vlm_provider="gemini",
-        vlm_model="gemini-2.0-flash",
+        vlm_model="gemini-2.5-flash",
         google_vlm_model="gemini-2.5-flash",
         google_base_url="https://gemini-proxy.example.com",
         google_api_key="test-key",
